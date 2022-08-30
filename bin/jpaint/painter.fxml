@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Main GUI layout file -->
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<BorderPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.91"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="jpaint.PaintController">
+    <top>
+        <VBox>
+            <MenuBar>
+                <Menu text="File">
+                    <MenuItem onAction="#onSave" text="Save" />
+                    <MenuItem onAction="#onSaveAs" text="Save As" />
+                    <MenuItem onAction="#onOpen" text="Open" />
+                    <MenuItem onAction="#onPrint" text="Print" />
+                    <MenuItem onAction="#onExit" text="Exit" />
+                </Menu>
+                <Menu text="About">
+                    <MenuItem onAction="#openSource" text="View source code" />
+                    <MenuItem onAction="#displayAbout" text="About JPaint" />
+                </Menu>
+            </MenuBar>
+
+            <ToolBar>
+                <HBox alignment="CENTER" spacing="5">
+                    <TextField fx:id="brushSize" text="18" />
+                    <ColorPicker fx:id="colorPicker" />
+                    <MenuButton fx:id="brushSelectButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="83.0" text="Brush">
+                        <items>
+                            <MenuItem mnemonicParsing="false" onAction="#setBrushBrush" text="Brush"/>
+                            <MenuItem mnemonicParsing="false" onAction="#setBrushPencil" text="Pencil"/>
+                        </items>
+                    </MenuButton>
+                    <Button fx:id="clearButton" mnemonicParsing="false" onAction="#onClear" prefHeight="25.0"
+                            prefWidth="52.0" text="Clear" textAlignment="CENTER"/>
+                    <CheckBox fx:id="eraser" text="Eraser" />
+                </HBox>
+            </ToolBar>
+
+        </VBox>
+    </top>
+
+    <center>
+        <Canvas fx:id="canvas" height="600" width="600" />
+    </center>
+</BorderPane>
